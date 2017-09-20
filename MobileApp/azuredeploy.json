@@ -262,7 +262,8 @@
       }
     },
     {
-      "apiVersion": "2015-11-01",
+      "apiVersion": "2017-06-01",
+      "condition": "[greater(length(parameters('WebLocations')),1)]",
       "type": "Microsoft.Network/trafficManagerProfiles",
       "name": "[variables('TrafficMgr').Name]",
       "location": "global",
@@ -288,7 +289,8 @@
       }
     },
     {
-      "apiVersion": "2015-11-01",
+      "apiVersion": "2017-06-01",
+      "condition": "[greater(length(parameters('WebLocations')),1)]",
       "name": "[concat(variables('TrafficMgr').Name,'/',variables('WebSiteName'), copyIndex())]",
       "copy": {
         "count": "[length(parameters('WebLocations'))]",
@@ -644,7 +646,7 @@
   "outputs": {
     "TrafficMgrFQDN": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Network/trafficManagerProfiles', variables('TrafficMgr').Name)).dnsConfig.fqdn]"
+      "value": "if(greater(length(parameters('WebLocations')),1),[reference(resourceId('Microsoft.Network/trafficManagerProfiles', variables('TrafficMgr').Name)).dnsConfig.fqdn, json('null'))]"
     },
     "StorageName": {
       "type": "string",
