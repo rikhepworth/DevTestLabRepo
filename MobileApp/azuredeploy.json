@@ -49,7 +49,7 @@
     },
     "AppInsightsLocation": {
       "type": "string",
-      "defaultValue": "EastUS",
+      "defaultValue": "WestEurope",
       "allowedValues": [
         "EastUS",
         "SouthCentralUS",
@@ -63,7 +63,7 @@
     "WebLocations": {
       "type": "array",
       "defaultValue": [
-        "[resourceGroup().location]"
+        "NorthEurope"
       ]
     }
   },
