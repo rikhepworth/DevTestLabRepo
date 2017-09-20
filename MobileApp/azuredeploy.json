@@ -262,7 +262,7 @@
       }
     },
     {
-      "apiVersion": "2017-06-01",
+      "apiVersion": "2017-05-01",
       "condition": "[greater(length(parameters('WebLocations')),1)]",
       "type": "Microsoft.Network/trafficManagerProfiles",
       "name": "[variables('TrafficMgr').Name]",
@@ -289,7 +289,7 @@
       }
     },
     {
-      "apiVersion": "2017-06-01",
+      "apiVersion": "2017-05-01",
       "condition": "[greater(length(parameters('WebLocations')),1)]",
       "name": "[concat(variables('TrafficMgr').Name,'/',variables('WebSiteName'), copyIndex())]",
       "copy": {
